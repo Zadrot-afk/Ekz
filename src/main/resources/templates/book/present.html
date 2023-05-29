@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Present Books</title>
+</head>
+<body>
+  <h2>Present Books</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Comment</th>
+        <th>Name</th>
+        <th>Pages</th>
+        <th>Year</th>
+        <th>Category</th>
+        <th>Press</th>
+        <th>Theme</th>
+        <th>Authors</th>
+      </tr>
+      </thead>
+    <tbody>
+    <tr th:each="books: ${book}">
+      <td th:text="${books.id}"></td>
+      <td th:text="${books.description}"></td>
+      <td th:text="${books.name}"></td>
+      <td th:text="${books.pages}"></td>
+      <td th:text="${books.year}"></td>
+      <td th:text="${books.category.name}"></td>
+      <td th:text="${books.press.name}"></td>
+      <td th:text="${books.theme.name}"></td>
+      <td>
+        <span th:each="author: ${books.authors}" th:text="${author.firstName + ' ' + author.lastName + ', '}"></span>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
